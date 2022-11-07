@@ -20,11 +20,10 @@ jobs:
           repository: myoshi1012/openapi-client-repo
           path: client
 
-      # openapi generate
       - name: Generate OpenAPI client
         uses: docker://openapitools/openapi-generator-cli
         with:
-          args: |
+          args: >-
             generate 
             -i ./petstore.yaml 
             -g typescript-axios 
