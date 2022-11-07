@@ -21,12 +21,21 @@ jobs:
           path: client
 
       # openapi generate
-      - uses: docker://openapitools/openapi-generator-cli
+      - name: Generate OpenAPI client
+        uses: docker://openapitools/openapi-generator-cli
         with:
-          args: generate -i ./petstore.yaml -g typescript-axios -o ./client/
+          args: |
+            generate 
+            -i ./petstore.yaml 
+            -g typescript-axios 
+            -o ./client/
 
-      # Create pull request
-      - uses: peter-evans/create-pull-request@v4
+      - name: Grant file permissions
+        run: |
+          sudo chown -R $USER:$USER .
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: client
