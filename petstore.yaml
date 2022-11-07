@@ -1,8 +1,6 @@
-
-
 swagger: "2.0"
 info:
-  version: 1.0.3
+  version: 1.0.0
   title: Swagger Petstore
   license:
     name: MIT
@@ -47,7 +45,7 @@ paths:
       tags:
         - pets
       responses:
-       "201":
+        "201":
           description: Null response
         default:
           description: unexpected error
