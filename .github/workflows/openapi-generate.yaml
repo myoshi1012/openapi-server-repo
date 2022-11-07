@@ -27,7 +27,7 @@ jobs:
             generate 
             -i ./petstore.yaml 
             -g typescript-axios 
-            -o ./client/
+            -o ./client/autogen
 
       - name: Grant file permissions
         run: |
