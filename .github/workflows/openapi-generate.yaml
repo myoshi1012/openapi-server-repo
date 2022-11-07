@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths: 
-      - 'petstore.yaml'
+      - '**/petstore.yaml'
 
 jobs:
   build:
